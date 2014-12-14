@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+	<section id="wrapper">
+		<header id="header">
+			<ul id="navlist">
+				<li><a id="title" class="index" href="">Home</a></li>
+				<li><a id="title" class="index" href="about.html">About</a></li>
+				<li><a id="title" class="index" href="archive.html">Archive</a></li>
+				<li><a id="title" class="index">Subscribe</a></li>
+			</ul>
+		</header> 
+		<ul id="post-list">
+			{% for post in posts %}
+				<li> 
+					<a href='/{{ post.path }}'><aside class="dates">{{ post.date|date:"M j" }}</aside></a>
+					<a href='/{{ post.path }}'>{{ post.title }} <h2>{{ post.headline }}</h2></a>
+				</li>
+			{% endfor %}
+		</ul>
+		{% block footer %}
+			<footer id="footer">
+				<p class="small">Made With ❤ in Blacksburg</p>
+			</footer>
+		{% endblock footer %}
+	</section>	
+{% endblock content %}
